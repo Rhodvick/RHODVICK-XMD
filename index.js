@@ -106,7 +106,7 @@ async function connectToWA() {
       let up = `Hey, ${getGreeting()}
 ╭════⊷
 ║ *『RHODVICK XMD is Active』*
-║    Creator: *RHODVICK TECH*
+║    Creator: _RHODVICK TECH_
 ║    Prefix : [ ${prefix} ]
 ║    Mode : ${mode}
 ║    Total Commands : ${totalCommands}
@@ -114,9 +114,9 @@ async function connectToWA() {
 
 ╭───◇
 ┃
-┃ *Thank you for choosing*                      
-┃  *RHODVICK XMD*
-┃  *_Support : https://www.youtube.com/@Rhodvick_*
+┃ _Thank you for choosing_                      
+┃  _RHODVICK XMD_
+┃  _ _Support : https://www.youtube.com/@Rhodvick_ _
 > A Project of Rhodvick Tech 
 ╰═════════════════⊷`;
 
@@ -203,45 +203,3 @@ async function connectToWA() {
 
         try {
           commandHandler.function(zk, mek, m, {
-            from, quoted, body, isRhodvick, command, args, text, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply
-          });
-        } catch (e) {
-          console.error("[PLUGIN ERROR] " + e);
-        }
-      }
-    }
-
-    commands.forEach(async (command) => {
-      if (body && command.on === "body") {
-        command.function(zk, mek, m, {
-          from, quoted, body, isRhodvick, command, args, text, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply
-        });
-      } else if (mek.q && command.on === "text") {
-        command.function(zk, mek, m, {
-          from, quoted, body, isRhodvick, command, args, text, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply
-        });
-      } else if ((command.on === "image" || command.on === "photo") && mek.type === "imageMessage") {
-        command.function(zk, mek, m, {
-          from, quoted, body, isRhodvick, command, args, text, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply
-        });
-      } else if (command.on === "sticker" && mek.type === "stickerMessage") {
-        command.function(zk, mek, m, {
-          from, quoted, body, isRhodvick, command, args, text, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply
-        });
-      }
-    });
-  });
-}
-
-//========================= Web Server ====================
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, 'rhodvickez', 'index.html'));
-});
-
-app.listen(port, () => {
-  console.log(`Server listening on http://localhost:${port}`);
-});
-
-setTimeout(() => {
-  connectToWA();
-}, 4000);
